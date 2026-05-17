@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sialkot: El Clúster de Pelotas de Fútbol</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Chosen Palette: Warm Neutrals with Teal Accents (Stone, Beige, Teal) -->
+    <!-- Application Structure Plan: The SPA is structured into a narrative dashboard. It begins with 'El Enigma' to hook the user with the paradox of a soccer cluster in a cricket nation. It flows into a historical 'Línea de Tiempo' (Origins) to establish the initial home market effect. Then, it transitions to quantitative evidence in 'Evolución y Auge' (Expansion) using charts to show growth. Finally, 'Fuerzas Impulsoras' breaks down the 'why' (agglomeration and policy) using interactive data, concluding with theoretical implications. This non-linear, scannable format prioritizes user comprehension of the report's core thesis: history and agglomeration trump immediate local demand. -->
+    <!-- Visualization & Content Choices: 
+         1. Line Chart (Exports): Goal - Show dramatic growth and peak. Method - Chart.js Line. Justification - Best for time-series data. 
+         2. Bar Chart (Firm Establishment): Goal - Correlate policy eras with firm creation. Method - Chart.js Bar. Justification - Clear categorical comparison across decades. 
+         3. Horizontal Bar (Agglomeration): Goal - Rank qualitative survey data. Method - Chart.js Horizontal Bar. Justification - Easy reading of long labels. 
+         4. Timeline: Goal - Organize historical events. Method - HTML/CSS structured layout. Justification - No SVG needed, clear narrative flow. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafaf9;
+            color: #292524;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Merriweather', serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 40vh;
+            max-height: 400px;
+        }
+        
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        
+        .timeline-item::before {
+            content: '⚽';
+            position: absolute;
+            left: -12px;
+            top: 0;
+            background: #fafaf9;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="sticky top-0 z-50 bg-stone-100/90 backdrop-blur border-b border-stone-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-teal-800 serif">Sialkot Report</span>
+                </div>
+                <div class="flex items-center space-x-4 overflow-x-auto">
+                    <button onclick="scrollToSection('enigma')" class="text-sm font-semibold text-stone-600 hover:text-teal-700 transition">El Enigma</button>
+                    <button onclick="scrollToSection('historia')" class="text-sm font-semibold text-stone-600 hover:text-teal-700 transition">Historia</button>
+                    <button onclick="scrollToSection('datos')" class="text-sm font-semibold text-stone-600 hover:text-teal-700 transition">Evolución</button>
+                    <button onclick="scrollToSection('factores')" class="text-sm font-semibold text-stone-600 hover:text-teal-700 transition">Motores</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20">
+
+        <header class="text-center space-y-6 py-12">
+            <div class="inline-block bg-teal-100 text-teal-800 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wide">
+                Análisis Económico
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-stone-900 leading-tight">
+                El Clúster de Pelotas de Fútbol en Sialkot
+            </h1>
+            <p class="text-xl text-stone-600 max-w-3xl mx-auto">
+                Una exploración interactiva basada en el estudio de Atkin, Chaudhry, et al. (2016) sobre cómo un país apasionado por el críquet se convirtió en el centro mundial de fabricación de balones de fútbol.
+            </p>
+        </header>
+
+        <section id="enigma" class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-4 text-teal-900 border-b-2 border-teal-100 pb-2">El Enigma del Mercado Interno</h2>
+            <p class="text-lg text-stone-700 leading-relaxed mb-6 font-light">
+                Esta sección introduce la paradoja central del informe. Aquí exploramos cómo la existencia del clúster de Sialkot desafía las teorías económicas tradicionales (el "efecto de mercado interno" de Krugman) y establece el contexto fundamental para comprender por qué la historia y la aglomeración son vitales.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-stone-50 p-6 rounded-xl">
+                <div class="space-y-4">
+                    <p class="text-stone-800">
+                        Sialkot, Pakistán, alberga a unas <strong>130 empresas</strong> que producen pelotas cosidas a mano para las principales marcas mundiales. Sin embargo, en Pakistán, el fútbol es de interés marginal; el deporte nacional indiscutible es el críquet.
+                    </p>
+                    <p class="text-stone-800">
+                        ¿Cómo puede existir un clúster exportador masivo donde no hay demanda local? El informe demuestra que el clúster sí tuvo un "efecto de mercado interno" inicial, pero no provenía de la población local, sino de una fuente inesperada.
+                    </p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <div class="text-center p-6 bg-white rounded-lg shadow-md border-t-4 border-teal-600 w-full">
+                        <div class="text-4xl mb-2">🏏 vs ⚽</div>
+                        <h3 class="font-bold text-lg text-stone-900">La Paradoja</h3>
+                        <p class="text-sm text-stone-500 mt-2">Búsquedas de críquet superan al resto de deportes por un factor de 5x (Google Trends, 2010).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="historia" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-4 text-teal-900 border-b-2 border-teal-100 pb-2">Orígenes: El Mercado Interno Inicial</h2>
+            <p class="text-lg text-stone-700 leading-relaxed mb-8 font-light">
+                En esta sección interactiva, trazamos la cronología de la formación del clúster. Al leer los hitos históricos, los usuarios comprenderán cómo la presencia militar británica actuó como catalizador y cómo el conocimiento se transmitió a través del sistema de aprendices (efectos de desbordamiento).
+            </p>
+            
+            <div class="relative border-l-2 border-teal-300 ml-4 md:ml-6 space-y-8 pb-4">
+                <div class="relative pl-6 timeline-item">
+                    <h3 class="font-bold text-xl text-stone-900">1852: La Guarnición</h3>
+                    <p class="text-stone-700 mt-1">Los británicos establecen una gran guarnición militar en Sialkot. Atraen trabajadores calificados y, con ellos, la pasión por el fútbol.</p>
+                </div>
+                <div class="relative pl-6 timeline-item">
+                    <h3 class="font-bold text-xl text-stone-900">1889: La Primera Pelota</h3>
+                    <p class="text-stone-700 mt-1">Un sargento británico pide a Fazal Elahi, un fabricante de sillas de montar musulmán, que repare una pelota. Elahi crea una réplica perfecta con cuero suavizado, evitando la espera de 8 meses desde Inglaterra.</p>
+                </div>
+                <div class="relative pl-6 timeline-item">
+                    <h3 class="font-bold text-xl text-stone-900">1904: Spinoffs y Aprendices</h3>
+                    <p class="text-stone-700 mt-1">Elahi toma aprendices (como Alla Ditta Sandal). Estos aprendices eventualmente forman sus propias empresas, creando los primeros "desbordamientos de conocimiento".</p>
+                </div>
+                <div class="relative pl-6 timeline-item">
+                    <h3 class="font-bold text-xl text-stone-900">1914-1918: Primera Exportación</h3>
+                    <p class="text-stone-700 mt-1">Con las fábricas inglesas paralizadas por la guerra, Sialkot comienza a exportar a Egipto y otras colonias británicas.</p>
+                </div>
+                <div class="relative pl-6 timeline-item">
+                    <h3 class="font-bold text-xl text-stone-900">1947: Independencia</h3>
+                    <p class="text-stone-700 mt-1">Los británicos abandonan el subcontinente. Sin embargo, Sialkot ya había diversificado su mercado, sobreviviendo a la pérdida de su "mercado interno" original.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="datos" class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-4 text-teal-900 border-b-2 border-teal-100 pb-2">Evolución Comercial y Políticas (1950 - 2010)</h2>
+            <p class="text-lg text-stone-700 leading-relaxed mb-6 font-light">
+                Esta sección visualiza los datos cuantitativos del informe. A través de gráficos dinámicos, mostramos el crecimiento exponencial de las exportaciones y cómo se correlaciona directamente con la creación de nuevas empresas y las políticas industriales gubernamentales de las décadas de 1970 a 1990. Interactúe con los gráficos para ver los detalles.
+            </p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="flex flex-col w-full">
+                    <h3 class="text-center font-bold text-stone-800 mb-2">Exportaciones de Artículos Deportivos (Millones US$)</h3>
+                    <p class="text-sm text-stone-500 text-center mb-4">Muestra el auge masivo que alcanzó un pico de US$547M en 1997-98.</p>
+                    <div class="chart-container">
+                        <canvas id="exportChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex flex-col w-full">
+                    <h3 class="text-center font-bold text-stone-800 mb-2">Creación de Empresas por Década</h3>
+                    <p class="text-sm text-stone-500 text-center mb-4">El pico de creación coincide con la era de subsidios a la exportación (1980-1990).</p>
+                    <div class="chart-container">
+                        <canvas id="firmChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-teal-50 p-6 rounded-lg border border-teal-100">
+                <h4 class="font-bold text-teal-900 mb-2">💡 El Impacto de la Política Industrial</h4>
+                <p class="text-stone-700 text-sm">
+                    Los gráficos superiores ilustran una "época dorada". En 1960-61, el gobierno ofreció tierras al 50% de su valor. Entre 1970 y mediados de 1990, se operó un <strong>esquema de reembolsos por exportación</strong>. Más de la mitad de las 181 empresas sobrevivientes en 2010 se establecieron durante estas dos décadas clave.
+                </p>
+            </div>
+        </section>
+
+        <section id="factores" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-4 text-teal-900 border-b-2 border-teal-100 pb-2">Motores de Aglomeración</h2>
+            <p class="text-lg text-stone-700 leading-relaxed mb-6 font-light">
+                Más allá de la política, las ventajas de estar ubicados juntos (aglomeración) sostuvieron el clúster. Aquí presentamos los resultados de encuestas a 5 empresas locales, clasificando los factores más críticos para su éxito continuo frente a la competencia global.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 flex flex-col w-full bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
+                    <h3 class="text-center font-bold text-stone-800 mb-2">Importancia de Factores (Escala 1-10)</h3>
+                    <div class="chart-container">
+                        <canvas id="agglomerationChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-stone-50 p-5 rounded-xl border border-stone-200">
+                        <div class="text-2xl mb-1">👥</div>
+                        <h4 class="font-bold text-stone-900">Concentración de Mano de Obra</h4>
+                        <p class="text-sm text-stone-600 mt-1">Calificado como el factor #1. Los dueños afirman que tomaría al menos 3 años entrenar a novatos. El clúster provee talento listo.</p>
+                    </div>
+                    <div class="bg-stone-50 p-5 rounded-xl border border-stone-200">
+                        <div class="text-2xl mb-1">🧠</div>
+                        <h4 class="font-bold text-stone-900">Desbordamientos de Conocimiento</h4>
+                        <p class="text-sm text-stone-600 mt-1">Observar los diseños demandados por marcas globales a los vecinos permite entender las tendencias sin costosos estudios de mercado.</p>
+                    </div>
+                    <div class="bg-stone-50 p-5 rounded-xl border border-stone-200">
+                        <div class="text-2xl mb-1">⚙️</div>
+                        <h4 class="font-bold text-stone-900">Insumos Especializados</h4>
+                        <p class="text-sm text-stone-600 mt-1">Fabricantes de troqueles y técnicos de reparación de máquinas están a "una llamada de distancia".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-teal-900 text-teal-50 p-10 rounded-3xl shadow-lg mt-12 text-center">
+            <h2 class="text-3xl font-bold mb-4 serif">Conclusión del Estudio</h2>
+            <p class="text-lg leading-relaxed max-w-4xl mx-auto font-light">
+                La ubicación actual de las industrias no refleja necesariamente los fundamentos económicos actuales. Una vez que un sector alcanza una cierta masa crítica, <strong>la persistencia y el crecimiento pueden desvincularse por completo de los fundamentos de ubicación originales</strong> (como la demanda local), sostenidos en su lugar por las fuerzas de aglomeración.
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-900 text-stone-400 py-8 text-center mt-12">
+        <p class="text-sm">Basado en el documento "Sobre los Orígenes y el Desarrollo del Clúster de Pelotas de Fútbol de Pakistán" (2016).</p>
+        <p class="text-xs mt-2">Atkin, Chaudhry, Chaudry, Khandelwal, Raza, y Verhoogen. The World Bank Economic Review.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Global Chart Configuration
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#57534e'; // text-stone-500
+        Chart.defaults.scale.grid.color = '#f5f5f4'; // stone-100
+
+        // 1. Export Line Chart Data (Approximated from textual description and graph shape)
+        const exportCtx = document.getElementById('exportChart').getContext('2d');
+        new Chart(exportCtx, {
+            type: 'line',
+            data: {
+                labels: ['1955', '1965', '1975', '1985', '1990', '1997', '2005', '2010'],
+                datasets: [{
+                    label: 'Exportaciones (Millones US$ reales 2012)',
+                    data: [10, 25, 90, 100, 150, 547, 400, 320],
+                    borderColor: '#0f766e', // teal-700
+                    backgroundColor: 'rgba(15, 118, 110, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.3,
+                    fill: true,
+                    pointBackgroundColor: '#0f766e',
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return ' US$ ' + context.parsed.y + ' Millones';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Millones US$' }
+                    }
+                }
+            }
+        });
+
+        // 2. Firm Establishment Bar Chart (From Table 2)
+        const firmCtx = document.getElementById('firmChart').getContext('2d');
+        new Chart(firmCtx, {
+            type: 'bar',
+            data: {
+                labels: ['1900s', '20s', '30s', '40s', '50s', '60s', '70s', '80s', '90s', '2000s'],
+                datasets: [{
+                    label: 'Empresas Creadas',
+                    data: [1, 1, 1, 2, 16, 14, 27, 32, 66, 20],
+                    backgroundColor: function(context) {
+                        const index = context.dataIndex;
+                        // Highlight 80s and 90s
+                        return (index === 7 || index === 8) ? '#0f766e' : '#a8a29e'; 
+                    },
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: function(context) {
+                                return 'Década: ' + context[0].label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Cant. de Empresas' }
+                    }
+                }
+            }
+        });
+
+        // 3. Agglomeration Factors Chart (From Table 1)
+        const aggCtx = document.getElementById('agglomerationChart').getContext('2d');
+        new Chart(aggCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Mano de Obra', 
+                    'Desbordes de Conocimiento', 
+                    'Insumos Especializados', 
+                    'Subcontratistas', 
+                    'Negociar c/ Gobierno', 
+                    'Acceso a Compradores', 
+                    'Instalaciones Compartidas'
+                ],
+                datasets: [{
+                    label: 'Puntuación Promedio',
+                    data: [9.0, 8.8, 8.75, 8.4, 7.2, 6.5, 6.4],
+                    backgroundColor: '#14b8a6', // teal-500
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y', // Makes it a horizontal bar chart
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: function(context) {
+                                // Wrap long labels logic handled simply in horizontal layout, 
+                                // but setting a specific tooltip format here.
+                                return context[0].label;
+                            },
+                            label: function(context) {
+                                return ' Puntuación: ' + context.parsed.x + ' / 10';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 10,
+                        title: { display: true, text: 'Puntuación Promedio (1-10)' }
+                    },
+                    y: {
+                        ticks: {
+                            autoSkip: false,
+                            callback: function(value, index, values) {
+                                // Wrapping labels if longer than 16 chars
+                                const label = this.getLabelForValue(value);
+                                if (label.length > 16) {
+                                    // Split roughly in half for display
+                                    const splitAt = label.indexOf(' ', 10);
+                                    if(splitAt !== -1) {
+                                        return [label.substring(0, splitAt), label.substring(splitAt + 1)];
+                                    }
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
