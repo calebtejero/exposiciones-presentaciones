@@ -162,6 +162,7 @@ svg .lb{paint-order:stroke;stroke:#fff;stroke-width:4px}
 input[type=range]{width:100%;height:44px;accent-color:var(--g);cursor:pointer}
 .big{font-family:var(--hd);font-weight:700;font-size:clamp(38px,4.6vw,62px);line-height:1;color:var(--g);white-space:nowrap}
 .big.neg{color:var(--och)}
+#rK .kpi strong{color:var(--g)}#rK .kpi span{color:var(--mut)}
 /* tarjetas que se abren (dentro de la sección) */
 .ov{position:absolute;inset:0;z-index:15;background:rgba(10,36,22,.55);padding:12px}
 .ov[hidden]{display:none}
@@ -227,7 +228,7 @@ html.deck .bgl,html.deck .wrap,html.deck .pl,html.deck .hero{--o:0}
     <div class="two">
       <div style="display:grid;gap:22px">
         <div class="kpis">
-          <div class="kpi"><strong>232 ×</strong><span>más tierra por trabajador en las explotaciones más grandes que en las más chicas</span></div>
+          <div class="kpi"><strong>232 ×</strong><span>más tierra por trabajador en las explotaciones de más de 10.000 ha que en las de 1 a 4 ha</span></div>
           <div class="kpi o"><strong>−64 %</strong><span>población que vive en explotaciones, 1980 a 2024</span></div>
           <div class="kpi o"><strong>× 8</strong><span>precio medio de la tierra, 2000 a 2013</span></div>
           <div class="kpi o"><strong>1 % → 43 %</strong><span>superficie en manos de personas jurídicas, 2000 a 2011</span></div>
@@ -251,7 +252,7 @@ html.deck .bgl,html.deck .wrap,html.deck .pl,html.deck .hero{--o:0}
     <p class="q">¿Qué efectos tendría sobre precios, producción, valor agregado, importaciones y empleo de Uruguay (2017) gravar el valor de la tierra de las grandes explotaciones y usar todo lo recaudado para subsidiar la producción familiar?</p>
     <div class="cards">
       <div class="card"><span class="n">H1</span><h3>Sube el empleo</h3><p>La producción familiar genera muchos más puestos por dólar producido.</p></div>
-      <div class="card"><span class="n">H2</span><h3>Los precios bajan poco</h3><p>El impuesto grava la tierra, no la producción: no entra en los costos.</p></div>
+      <div class="card"><span class="n">H2</span><h3>Los precios bajan poco</h3><p>El subsidio baja costos y el impuesto, que grava la tierra y no la producción, no entra en ellos.</p></div>
       <div class="card"><span class="n">H3</span><h3>Depende de la demanda</h3><p>Cuánto crece la producción depende de cuánto reaccionan los compradores, sobre todo los del exterior.</p></div>
     </div>
     <div class="row"><button class="more" data-d="dLit" type="button">Qué dice la literatura</button><button class="more" data-d="dUy" type="button">Por qué Uruguay</button></div>
@@ -272,7 +273,7 @@ html.deck .bgl,html.deck .wrap,html.deck .pl,html.deck .hero{--o:0}
           <div class="r">Importaciones e impuestos</div><div>m₁</div><div>m₂</div><div>m₃</div><div></div><div></div>
           <div class="r">Valor agregado</div><div>VAB₁</div><div>VAB₂</div><div>VAB₃</div><div></div><div></div>
         </div>
-        <p class="src" style="margin-top:10px">Coeficiente técnico: aᵢⱼ = zᵢⱼ / xⱼ, lo que el sector j compra al i por cada dólar que produce. Matriz de la cátedra: Uruguay 2017, 35 sectores.</p>
+        <p class="src" style="margin-top:10px">Coeficiente técnico: aᵢⱼ = zᵢⱼ / xⱼ, lo que el sector j compra al i por cada dólar que produce. Matriz base: Uruguay 2017, 35 sectores.</p>
       </div>
       <div style="display:grid;gap:16px">
         <div class="card"><h3>Modelo de cantidades</h3><p class="eq">x = L·f,  L = (I − A)⁻¹</p><p>Si cambia la demanda final, ¿cuánto produce cada sector? L suma todas las rondas: el sector, sus proveedores, los proveedores de los proveedores.</p></div>
@@ -409,12 +410,12 @@ html.deck .bgl,html.deck .wrap,html.deck .pl,html.deck .hero{--o:0}
 <!-- ============ 11. COMPARACIÓN ============ -->
 <section class="sec" data-bg="topo" id="comparacion" data-t="Escenarios">
   <div class="wrap">
-    <div><p class="tag">11 · Alternativas</p><h2>Subsidiar la producción da el doble de empleo que transferir la plata sin condición</h2></div>
+    <div><p class="tag">11 · Alternativas</p><h2>Con la elasticidad central, subsidiar la producción da entre 1,7 y 2,2 veces el empleo de una transferencia</h2></div>
     <div class="row"><div class="seg" role="group" aria-label="Indicador" id="segCmp"></div></div>
     <div class="two">
       <div class="panel"><div class="bars" id="cCmp"></div><p class="src" style="margin-top:10px">Misma recaudación en todos: 109,8 M US$. Saldo fiscal cero.</p></div>
       <div style="display:grid;gap:14px">
-        <div class="card"><h3>Transferencia sin condición</h3><p>Reparte el gasto en toda la canasta de consumo: 942 puestos, 8,6 por millón recaudado.</p></div>
+        <div class="card"><h3>Transferencia sin condición</h3><p>Reparte el gasto en toda la canasta de consumo: 942 puestos, 8,6 por millón recaudado. El subsidio rinde más solo si la elasticidad de las exportaciones supera 0,56 en valor absoluto.</p></div>
         <div class="card"><h3>Matriz sin abrir</h3><p>El subsidio se diluye en todo el agro y el empleo estimado es 26 % menor: la apertura sí importa.</p></div>
       </div>
     </div>
@@ -451,7 +452,7 @@ html.deck .bgl,html.deck .wrap,html.deck .pl,html.deck .hero{--o:0}
       <div class="card ok"><span class="n">H3</span><h3>Confirmada</h3><p>La magnitud depende de la demanda externa; el signo se mantiene con cualquier elasticidad mayor que 0,20.</p></div>
     </div>
     <div class="kpis">
-      <div class="kpi"><strong>19 vs 9</strong><span>puestos por millón recaudado: subsidio frente a transferencia</span></div>
+      <div class="kpi"><strong>19 vs 9</strong><span>puestos por millón recaudado, subsidio frente a transferencia (modelo abierto; requiere |ε<sub>x</sub>| &gt; 0,56)</span></div>
       <div class="kpi"><strong>+35 %</strong><span>empleo estimado gracias a abrir la matriz</span></div>
       <div class="kpi o"><strong>0,21 %</strong><span>del VAB: una política de reasignación, no de recaudación</span></div>
     </div>
@@ -500,12 +501,12 @@ html.deck .bgl,html.deck .wrap,html.deck .pl,html.deck .hero{--o:0}
 <p><b>Definición legal de productor familiar</b> (Res. MGAP 1.013/016) y un registro con 15.850 unidades y 27.623 productores.</p>
 <p><b>Índice CONEAT</b>: mide la capacidad productiva de la tierra y permite umbrales en hectáreas de calidad homogénea (CONEAT 100).</p>
 <p><b>Datos públicos</b>: censo 2024 por tamaño y departamento, y precio de la tierra de DIEA.</p>
-<p><b>Antecedente</b>: el Impuesto a la Concentración de Inmuebles Rurales (ICIR, Ley 18.876), creado a fines de 2011, gravaba a propietarios de más de 2.000 ha con 8 a 16 US$/ha. La Suprema Corte lo declaró inconstitucional en 2013 y fue derogado. Muestra que el instrumento es administrable y que el diseño legal importa.</p></div></div></div>
+<p><b>Antecedente</b>: el Impuesto a la Concentración de Inmuebles Rurales (ICIR, Ley 18.876), creado a fines de 2011, gravaba a los titulares de más de 2.000 ha CONEAT 100 con 67 a 135 UI por hectárea (8 a 16 US$). En 2013 la Suprema Corte declaró inconstitucionales sus artículos 1 y 2 para el caso planteado, porque la Constitución (art. 297) asigna a las intendencias el impuesto a la propiedad rural, y la Ley 19.093 lo derogó. Muestra que el instrumento es administrable y que el diseño legal importa.</p></div></div></div>
 
 <div class="ov" id="dEq" hidden role="dialog" aria-modal="true"><div class="ovc"><div class="dh"><h3>Cómo se encadenan los dos modelos</h3><button class="x" aria-label="Cerrar">✕</button></div><div class="db">
 <p class="eq">Δv<sub>AF</sub> = −s  ;  Δp = L′·Δv</p><p>El subsidio baja el costo no intermedio de la producción familiar en s = 7,24 % y el modelo de precios lo traslada a todos sus compradores.</p>
 <p class="eq">Δf<sub>i</sub> = (ε<sub>c,i</sub>·c<sub>i</sub> + ε<sub>x</sub>·e<sub>i</sub>)·Δp<sub>i</sub> − γ·R·b<sub>i</sub></p><p>Las elasticidades convierten la baja de precios en más demanda de hogares (c) y exportaciones (e). El impuesto resta el consumo que dejan de hacer los propietarios (γ = 0,5) con la canasta doméstica b.</p>
-<p class="eq">Δx = L·Δf  ;  ΔVAB = v̂·Δx  ;  Δempleo = ê·Δx</p><p><b>Modelo abierto</b>: efectos directos e indirectos, el piso. <b>Modelo cerrado</b>: tres grupos de hogares gastan el ingreso que reciben (efecto inducido), el techo. Los cálculos se hicieron en planilla y se replicaron en Julia con resultados idénticos.</p></div></div></div>
+<p class="eq">Δx = L·Δf  ;  ΔVAB = ŵ·Δx  ;  Δempleo = ℓ̂·Δx</p><p>ŵ y ℓ̂: VAB y puestos por dólar producido de cada sector. <b>Modelo abierto</b>: efectos directos e indirectos, el piso. <b>Modelo cerrado</b>: tres grupos de hogares gastan el ingreso que reciben (efecto inducido), el techo. Los cálculos se hicieron en planilla y se replicaron en Julia con resultados idénticos.</p></div></div></div>
 
 <div class="ov" id="dCrit" hidden role="dialog" aria-modal="true"><div class="ovc"><div class="dh"><h3>Cómo convertimos a CONEAT</h3><button class="x" aria-label="Cerrar">✕</button></div><div class="db">
 <p>El censo está en hectáreas físicas, no CONEAT 100. Convertimos el umbral con el índice CONEAT promedio de cada departamento (Lanfranco y Sapriza, 2010): <b>umbral físico = 500 × 100 / índice</b>.</p>
@@ -525,11 +526,11 @@ html.deck .bgl,html.deck .wrap,html.deck .pl,html.deck .hero{--o:0}
 <div class="ov" id="dDep" hidden role="dialog" aria-modal="true"><div class="ovc"><div class="dh"><h3>Recaudación por departamento, M US$ por año</h3><button class="x" aria-label="Cerrar">✕</button></div><div class="db">
 <div class="leg"><span><i style="background:#c99a45"></i>Tramo 1.000 a 2.500 ha (0,25 %)</span><span><i style="background:var(--och)"></i>Más de 2.500 ha (0,50 %)</span></div>
 <div id="cDep" style="display:grid;gap:6px"></div>
-<p class="src">Hectáreas del CGA 2024 convertidas a CONEAT 100 con el índice de cada departamento; precio de DIEA, compraventas 2024, ajustado por 0,934 para operaciones grandes. Montevideo toma el precio de Canelones. Total: 109,8 M US$.</p></div></div></div>
+<p class="src">Hectáreas físicas del CGA 2024; los umbrales de 1.000 y 2.500 ha CONEAT 100 se convirtieron a hectáreas físicas con el índice de cada departamento; precio de DIEA, compraventas 2024, ajustado por 0,934 para operaciones grandes. Montevideo toma el precio de Canelones. Total: 109,8 M US$.</p></div></div></div>
 
 <div class="ov" id="dPar" hidden role="dialog" aria-modal="true"><div class="ovc"><div class="dh"><h3>Supuestos del escenario</h3><button class="x" aria-label="Cerrar">✕</button></div><div class="db">
 <table class="stack"><thead><tr><th>Parámetro</th><th>Valor</th><th>Fuente</th></tr></thead><tbody>
-<tr><td>Hectáreas gravadas</td><td>6,86 M (2,93 en el tramo 1 y 3,93 en el tramo 2)</td><td>CGA 2024; Lanfranco y Sapriza (2010)</td></tr>
+<tr><td>Hectáreas gravadas</td><td>6,86 M ha físicas (2,93 en el tramo 1 y 3,93 en el tramo 2)</td><td>CGA 2024; Lanfranco y Sapriza (2010)</td></tr>
 <tr><td>Precio de la tierra</td><td>4.303 US$/ha en promedio</td><td>DIEA, compraventas 2024</td></tr>
 <tr><td>Subsidio</td><td>7,24 % del VBP familiar = recaudación / VBP</td><td>Neutralidad fiscal</td></tr>
 <tr><td>Elasticidad del consumo</td><td>Por rubro; −0,61 en alimentos</td><td>USDA-ERS</td></tr>
@@ -543,7 +544,8 @@ html.deck .bgl,html.deck .wrap,html.deck .pl,html.deck .hero{--o:0}
 <p><b>Eficiencia:</b> el subsidio sí introduce una cuña entre precio y costo, y 62,6 de los 86,0 M US$ de demanda nueva son exportaciones: parte del subsidio se va al exterior como menores precios.</p>
 <p><b>Datos:</b> costos por tamaño calibrados con Brasil; elasticidad de exportaciones supuesta; elasticidades de consumo del USDA con datos de 2005.</p>
 <p><b>Base del impuesto:</b> CONEAT promedio departamental de la tierra vendida; el censo cuenta explotaciones, no propietarios.</p>
-<p><b>Fuera del modelo:</b> capitalización del impuesto en el precio de la tierra y elusión por subdivisión de predios.</p></div></div></div>
+<p><b>Fuera del modelo:</b> capitalización del impuesto en el precio de la tierra y elusión por subdivisión de predios.</p>
+<p><b>Diseño legal:</b> un impuesto nacional a la tierra rural enfrentaría el reparo constitucional que hizo caer al ICIR (art. 297).</p></div></div></div>
 
 <div class="ov" id="dExt" hidden role="dialog" aria-modal="true"><div class="ovc"><div class="dh"><h3>Cómo seguir</h3><button class="x" aria-label="Cerrar">✕</button></div><div class="db">
 <p>Usar la tabulación de DIEA por hectáreas CONEAT y por tenencia.</p><p>Buscar datos uruguayos de costos por tamaño.</p><p>Armar una matriz de contabilidad social con la tierra como factor y los impuestos agropecuarios (IMEBA, IRAE, Patrimonio), base de un modelo de equilibrio general.</p><p>Extender el ejercicio a la provincia de Buenos Aires, por la similitud productiva.</p></div></div></div>
@@ -575,7 +577,7 @@ const bar = (label, val, max, col, txt, title) => `<div class="br" ${title ? `ti
 const replay = el => { if (RM || !el) return; el.classList.add("anim"); void el.offsetWidth; requestAnimationFrame(() => requestAnimationFrame(() => el.classList.remove("anim"))); };
 
 /* 1. estratos */
-const estr = [["Menos de 500 ha", 83, 22, 64], ["500 a 2.499 ha", 14.6, 38, 22], ["2.500 ha y más", 2.4, 40, 14]];
+const estr = [["Menos de 500 ha", 83, 22, 64], ["500 a 2.499 ha", 15, 38, 22], ["2.500 ha y más", 2.4, 40, 14]];
 $("#cEstr").innerHTML = estr.map(([n, a, b, c]) => `<div class="grp"><b>${n}</b>${bar("Explotaciones", a, 100, C.g, fmt(a, a % 1 ? 1 : 0) + " %")}${bar("Superficie", b, 100, C.mint, fmt(b) + " %")}${bar("Empleo", c, 100, C.och, fmt(c) + " %")}</div>`).join("");
 
 /* 5. apiladas y costos */
@@ -707,7 +709,7 @@ preset("#pBase", .5, -1, .5); preset("#pLow", .5, -.5, .5); preset("#pHigh", .5,
 drawSim();
 
 /* ---------- diálogos ---------- */
-const lit = [["Kalkuhl et al. (2018)", "Revisión teórica y fiscal", "El impuesto al valor de la tierra no distorsiona; un tramo exento preserva la equidad.", "Gravar la tierra y no la producción."], ["Cavalcanti y Café (2025)", "Cuasi-experimento, ITR de Brasil", "Descentralizar el ITR subió la recaudación 23 % sin afectar el producto.", "Evidencia de no distorsión."], ["Helfand y Taylor (2021)", "Revisión de la relación tamaño-productividad", "Las chicas rinden más por hectárea porque usan más trabajo.", "Intensidad laboral de la familiar."], ["Foster y Rosenzweig (2022)", "Modelo y microdatos de hogares agrícolas", "Por encima de cierto tamaño los rendimientos vuelven a subir: relación en U.", "La ventaja de las chicas no es universal."], ["Jayne et al. (2018)", "Meta-análisis de subsidios en África", "Los subsidios a insumos sufren captura; las transferencias son más eficientes.", "Comparar subsidio y transferencia."], ["Garcias y Kassouf (2016)", "Panel y fronteras estocásticas, Brasil", "Aliviar restricciones financieras eleva la productividad familiar.", "Respuesta de la familiar al ingreso."], ["Terra et al. (2009)", "MIP y MCS de Uruguay 2005", "El agro tiene multiplicadores de empleo elevados.", "Costos por actividad."], ["Carámbula Pareja (2015)", "Análisis censal de la tenencia", "Sociedades anónimas reemplazan a familias; se pierde arraigo.", "Fundamenta el problema."]];
+const lit = [["Kalkuhl et al. (2018)", "Revisión teórica y fiscal", "El impuesto al valor de la tierra no distorsiona; un tramo exento preserva la equidad.", "Gravar la tierra y no la producción."], ["Cavalcanti y Motta Café (2025)", "Cuasi-experimento, ITR de Brasil", "Descentralizar el ITR elevó la recaudación y la producción agrícola y redujo levemente la concentración.", "Gravar la tierra no reduce la producción."], ["Helfand y Taylor (2021)", "Revisión de la relación tamaño-productividad", "Las chicas rinden más por hectárea porque usan más trabajo.", "Intensidad laboral de la familiar."], ["Foster y Rosenzweig (2022)", "Modelo y microdatos de hogares agrícolas", "Por encima de cierto tamaño los rendimientos vuelven a subir: relación en U.", "La ventaja de las chicas no es universal."], ["Jayne et al. (2018)", "Meta-análisis de subsidios en África", "Los subsidios desplazan compra comercial y se desvían: suman menos de lo previsto al uso total.", "Comparar subsidio y transferencia."], ["Garcias y Kassouf (2016)", "Puntaje de propensión con el censo 2006, Brasil", "Aliviar restricciones financieras eleva la productividad familiar.", "Respuesta de la familiar al ingreso."], ["Terra et al. (2009)", "MIP y MCS de Uruguay 2005", "El agro tiene multiplicadores de empleo elevados.", "Costos por actividad."], ["Carámbula Pareja (2015)", "Análisis censal de la tenencia", "Sociedades anónimas reemplazan a familias; se pierde arraigo.", "Fundamenta el problema."]];
 $("#tLit").innerHTML = lit.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("");
 let sk = "ea", sd = -1;
 const drawSec = () => { const rows = [...D.sect].sort((a, b) => (typeof a[sk] === "string" ? a[sk].localeCompare(b[sk]) : a[sk] - b[sk]) * sd); $("#tSec tbody").innerHTML = rows.map(s => `<tr><td>${esc(s.n)}</td><td class="n">${fmt(s.mp, 2)}</td><td class="n">${fmt(s.bl, 2)}</td><td class="n">${fmt(s.fl, 2)}</td><td>${esc(s.t)}</td><td class="n">${fmt(s.et, 1)}</td><td class="n">${sgn(s.ea)}</td></tr>`).join(""); };
@@ -715,7 +717,7 @@ $$("#tSec th").forEach(th => th.onclick = () => { const k = th.dataset.k; sd = s
 drawSec();
 const dep = [["Río Negro", 2.02, 15.13], ["Soriano", 3.16, 12.97], ["Paysandú", 2.32, 5.77], ["Cerro Largo", 2.03, 5.71], ["Florida", 2.17, 5.14], ["Tacuarembó", 2.10, 5.16], ["Rivera", 1.04, 5.08], ["Durazno", 2.29, 4.88], ["Colonia", 1.37, 3.93], ["Salto", 2.02, 3.28], ["Artigas", 1.25, 3.01], ["Rocha", 1.28, 2.86], ["Flores", 1.15, 2.04], ["San José", 1.01, 2.07], ["Treinta y Tres", 1.10, 1.73], ["Lavalleja", 1.11, 1.54], ["Canelones", .33, .71], ["Maldonado", .42, .64], ["Montevideo", 0, 0]].sort((a, b) => (b[1] + b[2]) - (a[1] + a[2]));
 $("#cDep").innerHTML = dep.map(([n, a, b]) => `<div class="br" style="grid-template-columns:8.5em minmax(0,1fr) 3.6em"><span>${n}</span><div class="t" style="display:flex;gap:2px;background:transparent"><div style="width:${a / 17.2 * 100}%;background:#c99a45;border-radius:4px"></div><div style="width:${b / 17.2 * 100}%;background:${C.och};border-radius:4px"></div></div><span class="v">${fmt(a + b, 1)}</span></div>`).join("");
-const src = ["DIEA-MGAP (2026). Censo General Agropecuario 2024, volumen I.", "DIEA-MGAP (2025). Precio de la tierra: compraventas 2024.", "MESi (2026). Matriz insumo-producto doméstica de Uruguay 2017 (ADB MRIO LAC 2017 e ILOSTAT).", "Terra, M. I. et al. (2009). ¿Cuál es la importancia real del sector agropecuario sobre la economía uruguaya? OPYPA-MGAP.", "IBGE (2019). Censo Agropecuário 2017. INALE (2024). Producción lechera familiar.", "Lanfranco, B. y Sapriza, G. (2010). Incidencia del CONEAT en el precio de la tierra. Agrociencia, 14(2).", "Ackermann, M. N. y Cortelezzi, A. (2018). Estimación del empleo agropecuario. OPYPA-MGAP.", "USDA-ERS. International Food Consumption Patterns. Estrades y Llambí, CINVE-IFPRI. Senhadji y Montenegro (1999).", "Kalkuhl et al. (2018); Helfand y Taylor (2021); Foster y Rosenzweig (2022); Jayne et al. (2018); Cavalcanti y Café (2025); Garcias y Kassouf (2016); Carámbula Pareja (2015).", "Miller, R. E. y Blair, P. D. (2009). Input-output analysis. Wolsky, A. M. (1984). Peretti, P. (2024). Ricardo, D. (1817)."];
+const src = ["DIEA-MGAP (2026). Censo General Agropecuario 2024, volumen I.", "DIEA-MGAP (2025). Precio de la tierra: compraventas 2024.", "ADB (2022). Multiregional input-output tables: Latin America and the Caribbean, 2017.", "OIT (s. f.). ILOSTAT [Base de datos].", "Terra, M. I. et al. (2009). ¿Cuál es la importancia real del sector agropecuario sobre la economía uruguaya? OPYPA-MGAP.", "IBGE (2019). Censo Agropecuário 2017. INALE (2024). Producción lechera familiar.", "Lanfranco, B. y Sapriza, G. (2010). Incidencia del CONEAT y otros factores de calidad en el precio de la tierra. Agrociencia (Uruguay), 14(2), 89–102.", "Ackermann, M. N. y Cortelezzi, A. (2018). Estimación del empleo agropecuario. OPYPA-MGAP.", "USDA-ERS. International Food Consumption Patterns. Estrades y Llambí, CINVE-IFPRI. Senhadji y Montenegro (1999).", "Kalkuhl et al. (2018); Helfand y Taylor (2021); Foster y Rosenzweig (2022); Jayne et al. (2018); Cavalcanti y Motta Café (2025); Garcias y Kassouf (2016); Carámbula Pareja (2015).", "Ley 18.876 (2011), derogada por la Ley 19.093 (2013). Poder Judicial (2013). Suprema Corte declaró la inconstitucionalidad de dos artículos de la ley por la que creó el ICIR.", "Miller, R. E. y Blair, P. D. (2009). Input-output analysis. Wolsky, A. M. (1984). Peretti, P. (2024). Ricardo, D. (1817)."];
 $("#srcList").innerHTML = src.map(s => `<p>${esc(s)}</p>`).join("");
 
 
